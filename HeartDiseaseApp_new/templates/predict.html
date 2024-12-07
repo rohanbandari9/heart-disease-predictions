@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Form</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Heart Disease Prediction</h1>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <form method="POST" action="/predict">
+            <label>Patient ID:</label><br>
+            <input type="text" name="patient_id" required><br><br>
+
+            <label>Date of Birth (YYYY-MM-DD):</label><br>
+            <input type="date" name="dob" required><br><br>
+
+            <label>Age:</label><br>
+            <input type="number" name="age" required placeholder="Enter your age"><br><br>
+
+            <label>Cholesterol Level:</label><br>
+            <input type="number" name="cholesterol" required placeholder="Enter cholesterol level (mg/dL)"><br><br>
+
+            <label>Blood Pressure:</label><br>
+            <input type="number" name="blood_pressure" required placeholder="Enter blood pressure (mmHg)"><br><br>
+
+            <label>Maximum Heart Rate:</label><br>
+            <input type="number" name="heart_rate" required placeholder="Enter max heart rate"><br><br>
+
+            <label>Exercise-Induced Angina:</label><br>
+            <select name="exercise_angina" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select><br><br>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
